@@ -1,0 +1,6 @@
+!pip install roboflow
+
+from roboflow import Roboflow
+rf = Roboflow(api_key="ndSyE5QD9JuQ8oESyxgF")
+project = rf.workspace("university-syirw").project("car-detection-t2w2v")
+dataset = project.version(1).download("yolov5")
