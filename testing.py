@@ -20,7 +20,7 @@ def predict_car(img_path, model_path):
     return class_label, confidence
 
 model_path = 'car_detection_model.h5'
-image_path = 'testing3.jpg'  
+image_path = 'horsecar.jpg'  
 
 class_label, confidence = predict_car(image_path, model_path)
 
