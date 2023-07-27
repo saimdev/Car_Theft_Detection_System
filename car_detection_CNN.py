@@ -7,6 +7,7 @@ from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
 from keras.preprocessing.image import ImageDataGenerator
 from keras.utils import to_categorical
+from keras.callbacks import TensorBoard
 
 random.seed(42)
 
@@ -54,6 +55,8 @@ def train_model():
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     model = create_model()
+    
+    tensorboard_callback = TensorBoard(log_dir='./logs', histogram_freq=1, write_graph=True, write_images=True)
 
     data_generator = ImageDataGenerator(rotation_range=10, width_shift_range=0.1,
                                         height_shift_range=0.1, zoom_range=0.1, horizontal_flip=True)
@@ -63,7 +66,7 @@ def train_model():
     batch_size = 64
     epochs = 10
     model.fit(data_generator.flow(X_train, y_train, batch_size=batch_size), epochs=epochs,
-              validation_data=(X_test, y_test), steps_per_epoch=len(X_train) // batch_size)
+              validation_data=(X_test, y_test), steps_per_epoch=len(X_train) // batch_size,callbacks=[tensorboard_callback])
 
     test_loss, test_acc = model.evaluate(X_test, y_test)
     print(f"Test accuracy: {test_acc}")
