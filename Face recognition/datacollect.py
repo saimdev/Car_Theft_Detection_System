@@ -1,5 +1,3 @@
-# pip install opencv-python==4.5.2
-
 import cv2 
 
 video=cv2.VideoCapture(0)
@@ -16,7 +14,7 @@ while True:
     faces = facedetect.detectMultiScale(gray, 1.3, 5)
     for (x,y,w,h) in faces:
         count=count+1
-        cv2.imwrite('dataset/User.'+str(id)+"."+str(count)+".jpg", gray[y:y+h, x:x+w])
+        cv2.imwrite('runtime_dataset/User.'+str(id)+"."+str(count)+".jpg", gray[y:y+h, x:x+w])
         cv2.rectangle(frame, (x,y), (x+w, y+h), (50,50,255), 1)
 
     cv2.imshow("Frame",frame)

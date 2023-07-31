@@ -1,5 +1,3 @@
-# pip install opencv-python==4.5.2
-
 import cv2 
 import time
 

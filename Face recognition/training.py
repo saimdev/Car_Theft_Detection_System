@@ -5,7 +5,7 @@ import os
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 
-path="dataset"
+path="runtime_dataset"
 
 def getImageID(path):
     imagePath = [os.path.join(path, f) for f in os.listdir(path)]
