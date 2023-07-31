@@ -66,3 +66,6 @@ yarn-error.log*
 /dataset
 /Extra
 /Yolo Dataset
+/YOLOv8-DeepSORT-Object-Tracking
+/face recognition
+/Motion Detection
